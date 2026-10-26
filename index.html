@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikDrop — Video Downloader</title>
+<style>
+:root{color-scheme:dark;--bg:#090b10;--panel:#121620;--line:#252b38;--muted:#9ca6b8;--pink:#ff3d75;--cyan:#5ce1e6}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0,#202238 0,transparent 48%),var(--bg);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#f7f8fc;min-height:100vh}.wrap{max-width:860px;margin:auto;padding:24px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:75px}.brand{font-size:23px;font-weight:850;letter-spacing:-1px}.brand span{color:var(--pink)}.pill{font-size:12px;color:#c5ccda;border:1px solid var(--line);border-radius:99px;padding:7px 11px}.hero{text-align:center;max-width:650px;margin:0 auto 35px}.eyebrow{color:var(--cyan);font-weight:750;font-size:12px;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(36px,7vw,58px);line-height:1.05;letter-spacing:-2.5px;margin:15px 0}.hero h1 em{font-style:normal;color:var(--pink)}.hero p{color:var(--muted);margin:0}.panel{max-width:650px;margin:auto;background:linear-gradient(145deg,#171c29,#10131b);border:1px solid var(--line);padding:22px;border-radius:22px;box-shadow:0 24px 70px #0006}.label{display:block;font-weight:700;font-size:13px;margin:0 0 10px}.inputrow{display:flex;gap:10px}.url{width:100%;min-width:0;background:#090c12;border:1px solid #303849;border-radius:12px;color:white;padding:15px;font:inherit;outline:none}.url:focus{border-color:var(--pink)}button{font:inherit;font-weight:800;border:0;border-radius:12px;cursor:pointer;transition:transform .15s,opacity .15s}button:active{transform:scale(.98)}.primary{background:linear-gradient(100deg,var(--pink),#ff6b55);color:white;padding:14px 22px;white-space:nowrap}.hint,.error{font-size:12px;color:var(--muted);margin:11px 2px 0}.error{color:#ff8c9f;display:none}.features{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:25px 0;color:#b7c0cf;font-size:12px}.features span:before{content:"✓";color:var(--cyan);margin-right:6px}.result{display:none;max-width:650px;margin:20px auto 0}.back{background:transparent;color:#c2cad8;padding:7px 0;margin-bottom:12px}.video{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:16px;border-radius:18px}.thumb{width:110px;aspect-ratio:9/16;border-radius:12px;background:linear-gradient(145deg,#242c41,#10121a);display:grid;place-items:center;font-size:28px;color:var(--pink)}.videotitle{font-weight:800;overflow-wrap:anywhere}.creator{color:var(--muted);font-size:13px;margin-top:5px}.metadata{font-size:12px;color:#8994a8;margin-top:9px}.options{display:grid;gap:10px;margin-top:15px}.option{display:flex;align-items:center;justify-content:space-between;text-align:left;background:#151a25;border:1px solid #2a3140;color:white;padding:15px;border-radius:14px}.option:hover{border-color:#69758a}.option strong{display:block}.option small{display:block;color:var(--muted);font-weight:500;margin-top:2px}.right{display:flex;align-items:center;gap:10px}.download{background:#292f3d;padding:10px 14px;border-radius:9px;font-size:13px}.option.best{border-color:#b93660;background:#251723}.option.best .download{background:var(--pink);color:white}.ad{font-size:10px;background:#42391e;color:#ffe59b;border:1px solid #68552b;border-radius:6px;padding:4px 6px}.notice{background:#111a20;border:1px solid #29434a;color:#b4dfe0;border-radius:12px;padding:12px;font-size:12px;margin-top:15px}.foot{text-align:center;color:#737e91;font-size:11px;margin:28px auto;max-width:600px}.hidden{display:none!important}@media(max-width:520px){.top{margin-bottom:50px}.inputrow{flex-direction:column}.primary{width:100%}.panel{padding:16px}.video{grid-template-columns:76px 1fr;padding:12px;gap:12px}.thumb{width:76px}.right{gap:6px}.download{padding:9px;font-size:12px}.option{padding:12px}.hero h1{letter-spacing:-1.6px}}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div class="brand">Tik<span>Drop</span> ↘</div><div class="pill">VIDEO TOOL · DEMO</div></header>
+<section class="hero" id="hero"><div class="eyebrow">Fast · Simple · Clean</div><h1>Your video.<br><em>Your way.</em></h1><p>Paste a TikTok link to preview video details and choose a download quality.</p></section>
+<section class="panel" id="entry"><label class="label" for="url">TikTok video link</label><div class="inputrow"><input id="url" class="url" type="url" placeholder="https://www.tiktok.com/@user/video/..." autocomplete="url"><button class="primary" id="analyze">Get video ↗</button></div><p class="hint">Paste a public TikTok video URL to continue.</p><p class="error" id="error" role="alert"></p></section>
+<div class="features" id="features"><span>No account needed</span><span>Quality options</span><span>Mobile-friendly</span></div>
+<section class="result" id="result"><button class="back" id="back">← Back to link</button><div class="video"><div class="thumb">▶</div><div><div class="videotitle" id="title">TikTok video</div><div class="creator" id="creator">Creator details unavailable in demo</div><div class="metadata" id="metadata">Video details</div></div></div>
+<div class="options">
+<button class="option" data-quality="Standard"><span><strong>Download</strong><small>Standard available quality</small></span><span class="right"><span class="download">Download ↓</span></span></button>
+<button class="option" data-quality="2K"><span><strong>Download 2K</strong><small>High-resolution version, if available</small></span><span class="right"><span class="download">Download ↓</span></span></button>
+<button class="option best" data-quality="4K"><span><strong>Download 4K</strong><small>Ultra-high resolution, if available</small></span><span class="right"><span class="ad">▣ AD</span><span class="download">Watch ad · ↓</span></span></button>
+</div>
+<div class="notice" id="notice">This is a front-end demo. Real video details and downloads need a working video-processing backend; this page will not pretend a file was downloaded.</div>
+</section>
+<footer class="foot">Only download videos you own or have permission to save. Respect creators’ rights and platform rules. Quality depends on the original video and available source.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id), url=$('url');
+function showError(msg){$('error').textContent=msg;$('error').style.display='block'}
+function validTikTok(s){try{const u=new URL(s);return /(^|\.)tiktok\.com$/i.test(u.hostname)}catch{return false}}
+$('analyze').addEventListener('click',()=>{
+ const s=url.value.trim();$('error').style.display='none';
+ if(!s)return showError('Paste a TikTok video link first.');
+ if(!validTikTok(s))return showError('That does not look like a TikTok URL. Paste a link from tiktok.com.');
+ $('hero').classList.add('hidden');$('entry').classList.add('hidden');$('features').classList.add('hidden');$('result').style.display='block';
+ let u;try{u=new URL(s)}catch{}
+ const match=s.match(/@([^/?]+)/);$('title').textContent='TikTok video preview';
+ $('creator').textContent=match?'Creator: @'+match[1]:'Creator: not available until connected to a video service';
+ $('metadata').textContent='Source link accepted · '+(u?u.hostname:'TikTok');
+ $('notice').textContent='Demo mode: the link is validated, but title, caption, creator details and real downloads are not fetched. Connect a legitimate backend to enable these features.';
+});
+$('back').addEventListener('click',()=>{$('result').style.display='none';$('hero').classList.remove('hidden');$('entry').classList.remove('hidden');$('features').classList.remove('hidden')});
+document.querySelectorAll('[data-quality]').forEach(b=>b.addEventListener('click',()=>{
+ const q=b.dataset.quality;
+ $('notice').textContent=q==='4K'?'Ad placement placeholder: a real ad provider and a working backend are required before a 4K download can start.':'Download placeholder: connect a video-processing backend to retrieve an authorized video file.';
+}));
+url.addEventListener('keydown',e=>{if(e.key==='Enter')$('analyze').click()});
+</script></body></html>
